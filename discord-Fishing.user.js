@@ -83,9 +83,10 @@ window.onload = (function () {
 })();
 
 async function sendMessage(channelId, authTokenImport) {
-  const message = "Fishing for gold";
+  const random = Math.random() * 100000;
+  const message = "Fishing Manually " + random;
   // const messageBody = '{"content": ' + message + ',"tts":false}';
-  const messageBody = '{"content":"fiskar","tts":false}';
+  const messageBody = `{"content":"${message}","tts":false}`;
 
   const apiUrl =
     "https://discord.com/api/v9/channels/" + channelId + "/messages";
@@ -110,7 +111,7 @@ async function sendMessage(channelId, authTokenImport) {
       "Sec-GPC": "1",
     },
 
-    body: '{"content":"Fishing","tts":false}',
+    body: messageBody,
     method: "POST",
     mode: "cors",
   });
